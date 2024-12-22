@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NRW Roleplay - Deine Roleplay-Community in NRW">
+    <title>NRW Roleplay</title>
+
+    <!-- CSS direkt im HTML einbinden -->
+    <style>
+        /* Grundlegendes Layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden; /* Verhindert horizontalen Scrollbalken durch Schneeflocken */
+            position: relative;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #1E90FF; /* Blaue Schrift für Links */
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #ff4500; /* Rote Hoverfarbe */
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #333;
+            color: #1E90FF; /* Blaue Schrift */
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .cta-button {
+            background-color: #ff4500; /* Rote Schaltfläche */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background-color: #ff6700;
+        }
+
+        /* About Section */
+        .about {
+            padding: 40px;
+            background-color: #fff;
+            text-align: center;
+            color: #1E90FF; /* Blaue Schrift */
+        }
+
+        /* Events Section */
+        .events {
+            padding: 40px;
+            background-color: #f9f9f9;
+            color: #1E90FF; /* Blaue Schrift */
+        }
+
+        .event-card {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-card h3 {
+            margin-top: 0;
+            color: #1E90FF; /* Blaue Schrift */
+        }
+
+        /* Team Section */
+        .team {
+            padding: 40px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .team h2 {
+            color: #1E90FF; /* Blaue Schrift */
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            background-color: #f1f1f1;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .member-logo {
+            background-color: #FF0000; /* Rotes Logo */
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-member h3 {
+            font-size: 24px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .team-member p {
+            color: #666;
+        }
+
+        /* Discord Section */
+        .discord {
+            padding: 40px;
+            background-color: #fff;
+            text-align: center;
+            color: #1E90FF; /* Blaue Schrift */
+        }
+
+        .discord a {
+            background-color: #7289DA;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .discord a:hover {
+            background-color: #5d74a1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Schneeflocken Animation */
+        .snowflake {
+            position: fixed; /* Fest über der Seite */
+            top: -10px; /* Startposition oben */
+            z-index: 1000;
+            pointer-events: none;
+            font-size: 24px;
+            color: #FF0000; /* Kräftiges Rot für Schneeflocken */
+            user-select: none;
+            animation: fall 10s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10px;
+                opacity: 1;
+                transform: translateX(0);
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+                transform: translateX(calc(50vw - 50%)); /* Schneeflocken bewegen sich zufällig */
+            }
+        }
+
+        /* Musik Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .music-player button {
+            background-color: #ff4500; /* Rote Schaltfläche */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .music-player button:hover {
+            background-color: #ff6700;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Startseite</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#discord">Discord</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Startseite -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Willkommen bei NRW Roleplay</h1>
+            <p>Erlebe authentisches Roleplay in NRW!</p>
+            <a href="#about" class="cta-button">Mehr erfahren</a>
+        </div>
+    </section>
+
+    <!-- Über uns -->
+    <section id="about" class="about">
+        <h2>Über NRW Roleplay</h2>
+        <p>NRW Roleplay ist eine engagierte Community von Roleplay-Spielern, die sich auf das Spielgeschehen in Nordrhein-Westfalen fokussieren. Unser Ziel ist es, den Spielern eine spannende und realistische Umgebung zu bieten.</p>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="events">
+        <h2>Unsere kommenden Events</h2>
+        <div class="event-card">
+            <h3>Winter-Event 2024</h3>
+            <p>Feiere mit uns die Wintersaison mit vielen neuen Missionen und spannenden Events!</p>
+        </div>
+        <div class="event-card">
+            <h3>Neujahrs-Event</h3>
+            <p>Begleite uns zu einem Neujahrs-Event voller neuer Überraschungen und Abenteuer!</p>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="team">
+        <h2>Unser Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <div class="member-logo">A</div>
+                <h3>Alessandro</h3>
+                <p>Projektleitung</p>
+            </div>
+            <div class="team-member">
+                <div class="member-logo">F</div>
+                <h3>Fabian</h3>
+                <p>Projektleitung</p>
+            </div>
+            <div class="team-member">
+                <div class="member-logo">M</div>
+                <h3>Max2</h3>
+                <p>Probe Developer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord -->
+    <section id="discord" class="discord">
+        <h2>Tritt unserem Discord bei</h2>
+        <p>Für alle aktuellen Infos und eine lebendige Community, trete unserem Discord-Server bei!</p>
+        <a href="https://discord.gg/V5PEQXB83K" target="_blank">Zum Discord-Server</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 NRW Roleplay - Alle Rechte vorbehalten</p>
+    </footer>
+
+    <!-- Schneeflocken hinzufügen -->
+    <script>
+        // Schneeflocken erstellen
+        function createSnowflakes() {
+            const numberOfSnowflakes = 100; // Anzahl der Schneeflocken
+
+            for (let i = 0; i < numberOfSnowflakes; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = '❄'; // Unicode für Schneeflocke
+
+                // Zufällige Position und Animationen setzen
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                snowflake.style.animationDuration = `${Math.random() * 10 + 5}s`; // Animation zwischen 5 und 15 Sekunden
+                snowflake.style.animationDelay = `${Math.random() * 5}s`; // Zufällige Verzögerung
+
+                document.body.appendChild(snowflake);
+            }
+        }
+
+        // Schneeflocken beim Laden der Seite erzeugen
+        window.onload = createSnowflakes;
+    </script>
+
+    <!-- Musik Player -->
+    <audio id="christmasMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHel
