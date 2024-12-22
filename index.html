@@ -6,7 +6,6 @@
     <meta name="description" content="NRW Roleplay - Deine Roleplay-Community in NRW">
     <title>NRW Roleplay</title>
 
-    <!-- CSS direkt im HTML einbinden -->
     <style>
         /* Grundlegendes Layout */
         body {
@@ -15,7 +14,7 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
-            overflow-x: hidden; /* Verhindert horizontalen Scrollbalken durch Schneeflocken */
+            overflow-x: hidden;
             position: relative;
         }
 
@@ -37,19 +36,19 @@
         }
 
         nav ul li a {
-            color: #1E90FF; /* Blaue Schrift für Links */
+            color: #1E90FF; 
             text-decoration: none;
             font-size: 18px;
         }
 
         nav ul li a:hover {
-            color: #ff4500; /* Rote Hoverfarbe */
+            color: #ff4500; 
         }
 
         /* Hero Section */
         .hero {
             background-color: #333;
-            color: #1E90FF; /* Blaue Schrift */
+            color: #1E90FF; 
             text-align: center;
             padding: 50px 0;
         }
@@ -59,7 +58,7 @@
         }
 
         .cta-button {
-            background-color: #ff4500; /* Rote Schaltfläche */
+            background-color: #ff4500; 
             color: white;
             padding: 10px 20px;
             text-decoration: none;
@@ -71,19 +70,51 @@
             background-color: #ff6700;
         }
 
+        /* Countdown Section */
+        .countdown {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 24px;
+        }
+
+        .gift-box {
+            text-align: center;
+            margin: 30px;
+        }
+
+        .gift-box button {
+            background-color: #ff4500;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .gift-box button:hover {
+            background-color: #ff6700;
+        }
+
+        .gift-message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #ff4500;
+        }
+
         /* About Section */
         .about {
             padding: 40px;
             background-color: #fff;
             text-align: center;
-            color: #1E90FF; /* Blaue Schrift */
+            color: #1E90FF; 
         }
 
         /* Events Section */
         .events {
             padding: 40px;
             background-color: #f9f9f9;
-            color: #1E90FF; /* Blaue Schrift */
+            color: #1E90FF; 
         }
 
         .event-card {
@@ -96,7 +127,7 @@
 
         .event-card h3 {
             margin-top: 0;
-            color: #1E90FF; /* Blaue Schrift */
+            color: #1E90FF; 
         }
 
         /* Team Section */
@@ -107,7 +138,7 @@
         }
 
         .team h2 {
-            color: #1E90FF; /* Blaue Schrift */
+            color: #1E90FF; 
             font-size: 32px;
             margin-bottom: 20px;
         }
@@ -134,7 +165,7 @@
         }
 
         .member-logo {
-            background-color: #FF0000; /* Rotes Logo */
+            background-color: #FF0000;
             color: white;
             font-size: 40px;
             font-weight: bold;
@@ -162,7 +193,7 @@
             padding: 40px;
             background-color: #fff;
             text-align: center;
-            color: #1E90FF; /* Blaue Schrift */
+            color: #1E90FF; 
         }
 
         .discord a {
@@ -178,22 +209,14 @@
             background-color: #5d74a1;
         }
 
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-
         /* Schneeflocken Animation */
         .snowflake {
-            position: fixed; /* Fest über der Seite */
-            top: -10px; /* Startposition oben */
+            position: fixed;
+            top: -10px;
             z-index: 1000;
             pointer-events: none;
             font-size: 24px;
-            color: #FF0000; /* Kräftiges Rot für Schneeflocken */
+            color: #FF0000; 
             user-select: none;
             animation: fall 10s linear infinite;
         }
@@ -207,36 +230,8 @@
             100% {
                 top: 100%;
                 opacity: 0;
-                transform: translateX(calc(50vw - 50%)); /* Schneeflocken bewegen sich zufällig */
+                transform: translateX(calc(50vw - 50%));
             }
-        }
-
-        /* Musik Player */
-        .music-player {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-        }
-
-        .music-player button {
-            background-color: #ff4500; /* Rote Schaltfläche */
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-
-        .music-player button:hover {
-            background-color: #ff6700;
         }
     </style>
 </head>
@@ -260,6 +255,18 @@
             <p>Erlebe authentisches Roleplay in NRW!</p>
             <a href="#about" class="cta-button">Mehr erfahren</a>
         </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section id="countdown" class="countdown">
+        <h2>Countdown bis Weihnachten!</h2>
+        <p id="countdown-timer">Es ist schon soweit, öffne dein Geschenk!</p>
+    </section>
+
+    <!-- Geschenk öffnen Section -->
+    <section id="gift-box" class="gift-box">
+        <button id="open-gift">Geschenk öffnen</button>
+        <div id="gift-message" class="gift-message"></div>
     </section>
 
     <!-- Über uns -->
@@ -314,30 +321,50 @@
         <p>&copy; 2024 NRW Roleplay - Alle Rechte vorbehalten</p>
     </footer>
 
-    <!-- Schneeflocken hinzufügen -->
     <script>
-        // Schneeflocken erstellen
-        function createSnowflakes() {
-            const numberOfSnowflakes = 100; // Anzahl der Schneeflocken
+        // Array mit täglichen Geschenken für Dezember
+        const gifts = [
+            "Steam-Gutschein für 5€",
+            "10% Rabatt auf deinen nächsten Kauf",
+            "Kostenlose In-Game Items",
+            "Exklusives Skin Paket",
+            "Boni für deinen Roleplay-Server",
+            "Steam-Gutschein für 20€",
+            "Frohe Weihnachten und ein glückliches Neues Jahr!"
+        ];
 
-            for (let i = 0; i < numberOfSnowflakes; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.classList.add('snowflake');
-                snowflake.innerHTML = '❄'; // Unicode für Schneeflocke
+        // Heute Datum abfragen
+        const today = new Date();
+        const day = today.getDate();  // Tag des Monats
 
-                // Zufällige Position und Animationen setzen
-                snowflake.style.left = `${Math.random() * 100}vw`;
-                snowflake.style.animationDuration = `${Math.random() * 10 + 5}s`; // Animation zwischen 5 und 15 Sekunden
-                snowflake.style.animationDelay = `${Math.random() * 5}s`; // Zufällige Verzögerung
+        // Funktion, um das Geschenk zu öffnen
+        document.getElementById('open-gift').addEventListener('click', function() {
+            // Prüfen, ob der Tag im Dezember innerhalb des Geschenkrange liegt
+            if (day >= 1 && day <= gifts.length) {
+                const giftMessage = gifts[day - 1];
+                document.getElementById('gift-message').innerHTML = giftMessage;
+            } else {
+                document.getElementById('gift-message').innerHTML = "Heute gibt es kein Geschenk. Komme zurück, wenn der Kalender geöffnet ist!";
+            }
+        });
 
-                document.body.appendChild(snowflake);
+        // Countdown-Funktion
+        function updateCountdown() {
+            const targetDate = new Date('2024-12-25');  // Ziel: Weihnachten
+            const now = new Date();
+            const timeDifference = targetDate - now;
+
+            if (timeDifference <= 0) {
+                document.getElementById('countdown-timer').innerHTML = "Frohe Weihnachten!";
+            } else {
+                const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                document.getElementById('countdown-timer').innerHTML = `Noch ${daysLeft} Tage bis Weihnachten!`;
             }
         }
 
-        // Schneeflocken beim Laden der Seite erzeugen
-        window.onload = createSnowflakes;
+        // Countdown regelmäßig aktualisieren
+        setInterval(updateCountdown, 1000);
+        updateCountdown();  // sofort aktualisieren
     </script>
-
-    <!-- Musik Player -->
-    <audio id="christmasMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHel
+</body>
+</html>
